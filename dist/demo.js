@@ -21286,6 +21286,8 @@
 	          filepicker.exportFile(blob || options.url, options, onFinished, onFail, onUploading);
 	        } else if (mode === 'convert') {
 	          filepicker.convert(blob, options, options, onFinished, onFail, onUploading);
+	        } else if (mode === 'pickAndStore') {
+	          filepicker.pickAndStore(options, options, onFinished, onFail, onUploading);
 	        } else if (options.multiple) {
 	          filepicker.pickMultiple(options, onFinished, onFail, onUploading);
 	        } else {
@@ -21326,7 +21328,7 @@
 	        };
 	        if (typeof window !== 'undefined') {
 	          filepicker.constructWidget(element);
-	          element.type = '';
+	          element.setAttribute('type', '');
 	        }
 	      }
 	    }
@@ -21337,18 +21339,21 @@
 	      var defaultWidget = _props2.defaultWidget;
 	      var buttonClass = _props2.buttonClass;
 	      var buttonText = _props2.buttonText;
+	      var link = _props2.link;
 	      var options = _props2.options;
 	
 	      if (defaultWidget) {
 	        return _react2.default.createElement('input', { ref: 'target', type: 'filepicker' });
 	      }
+	      var Tag = link ? 'a' : 'button';
 	      return _react2.default.createElement(
-	        'button',
+	        Tag,
 	        {
 	          name: 'filepicker',
 	          ref: 'fpButton',
 	          onClick: this.onClickPick,
-	          className: buttonClass || options.buttonClass
+	          className: buttonClass || options.buttonClass,
+	          href: link ? 'javascript:void(0)' : undefined
 	        },
 	        buttonText || options.buttonText
 	      );
@@ -21381,6 +21386,7 @@
 	  blob: _react.PropTypes.object,
 	  apikey: _react.PropTypes.string.isRequired,
 	  defaultWidget: _react.PropTypes.bool,
+	  link: _react.PropTypes.bool,
 	  mode: _react.PropTypes.string,
 	  buttonText: _react.PropTypes.string,
 	  buttonClass: _react.PropTypes.string,
@@ -25490,11 +25496,11 @@
 	
 	
 	// module
-	exports.push([module.id, ".gQ_agMoq7RkHEnELUsf1F {\r\n  background: white;\r\n  border: 1px solid black;\r\n  cursor: pointer;\r\n  border-radius:3px;\r\n}", ""]);
+	exports.push([module.id, "._3tu-LM2Lxzp_2dmpOir7V1 {\n  background: white;\n  border: 1px solid black;\n  cursor: pointer;\n  border-radius:3px;\n}", ""]);
 	
 	// exports
 	exports.locals = {
-		"customButton": "gQ_agMoq7RkHEnELUsf1F"
+		"customButton": "_3tu-LM2Lxzp_2dmpOir7V1"
 	};
 
 /***/ },
